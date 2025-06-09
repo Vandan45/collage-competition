@@ -1,0 +1,72 @@
+<!-- HERO SECTION -->
+<!-- HERO SECTION -->
+<div class="hero-section bg-primary text-white text-center position-relative py-5">
+  <div class="hero-bg-image"></div> <!-- This is the background image -->
+
+  <div class="hero-content position-relative">
+    <h1 class="fw-bold">Show Your Skills, Compete & Win!</h1>
+    <p>Join the best competitions across colleges</p>
+    <div class="d-flex justify-content-center mt-3 gap-3 flex-wrap">
+      <a class="btn btn-light text-primary fw-semibold" routerLink="/competition">
+        <i class="bi bi-search"></i> Browse Competitions
+      </a>
+      <a class="btn btn-outline-light fw-semibold" routerLink="/register">
+        <i class="bi bi-person-plus-fill"></i> Join Now
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED COMPETITIONS -->
+<div class="container my-5">
+  <h2 class="mb-4 text-center">Featured Competitions</h2>
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let comp of competitions">
+      <div class="card h-100 shadow-sm">
+        <!-- <div class="card-body"> -->
+            <div class="card h-100 shadow-sm">
+            <img src="assets/images/student-bg.jpg" alt="" class="card-img-top">
+            <div class="card-body">
+          <h5 class="card-title"><i class="bi bi-star-fill text-warning me-2"></i>{{ comp.title }}</h5>
+          <p class="card-text">{{ comp.description }}</p>
+          <p class="mb-1"><i class="bi bi-calendar-event me-1"></i> Start: {{ comp.startDate }}</p>
+          <p><i class="bi bi-calendar-check me-1"></i> End: {{ comp.endDate }}</p>
+          </div>
+          </div>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4-STEP INFO CARDS -->
+<div class="container my-5">
+  <h2 class="mb-4 text-center">How It Works</h2>
+  <div class="row text-center g-4">
+    <div class="col-md-3" *ngFor="let step of steps">
+      <div class="card h-100 shadow-sm p-3">
+        <div class="rounded-circle bg-primary text-white mx-auto mb-3 d-flex justify-content-center align-items-center" style="width: 80px; height: 80px; font-size: 32px;">
+          <i [class]="step.icon"></i>
+        </div>
+        <h5 class="card-title">{{ step.title }}</h5>
+        <p class="card-text">{{ step.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAST WINNERS SECTION -->
+<div class="container my-5">
+  <h2 class="mb-4 text-center">Past Winners</h2>
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let winner of winners">
+      <div class="card h-100 shadow-sm">
+        <img src={{winner.url}} class="card-img-top" alt="Winner">
+        <div class="card-body">
+          <h5 class="card-title">{{ winner.name }}</h5>
+          <p class="card-text">{{ winner.blog }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
