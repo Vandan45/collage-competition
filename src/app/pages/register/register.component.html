@@ -1,1 +1,65 @@
-<p>register works!</p>
+<!-- FULL PAGE BLUE BACKGROUND -->
+<div class="min-vh-100 d-flex justify-content-center align-items-center bg-primary">
+  <div class="card p-4 shadow-lg" style="width: 100%; max-width: 800px;">
+    <h3 class="text-center mb-4 fw-bold">Create Your Account</h3>
+
+    <form>
+      <!-- First & Last Name -->
+      <div class="row mb-3">
+        <div class="col-md-12">
+            Full Name
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-person"></i></span>
+            <input type="text"[(ngModel)]="registerObj.fullName" name="fullName" class="form-control" placeholder="Full Name" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        Email
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+          <input type="email" [(ngModel)]="registerObj.email" name="email" class="form-control" placeholder="Email" required>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-12">
+            College/University
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-building"></i></span>
+            <input type="text" [(ngModel)]="registerObj.collegeName" name="collegeName" class="form-control" placeholder="College/University" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phone, Password, Confirm Password -->
+      <div class="row mb-3">
+        <div class="col-md-4 mt-3 mt-md-0">
+            Create Password
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+            <input type="password" [(ngModel)]="registerObj.password"  name="password" class="form-control" placeholder="Create Password" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create Account Button -->
+      <div class="text-center mb-2">
+        <button type="submit" (click)="onRegister()" class="btn btn-primary px-5 fw-semibold">
+          Create Account
+        </button>
+      </div>
+
+      <!-- Already have an account -->
+      <div class="text-center">
+        <small class="text-muted">Already have an account?
+          <a routerLink="/login" class="text-decoration-underline text-primary">Go to Sign In</a>
+        </small>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- <pre>{{registerObj | json}}</pre> -->

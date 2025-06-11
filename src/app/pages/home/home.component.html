@@ -24,15 +24,15 @@
     <div class="col-md-4" *ngFor="let comp of competitions">
       <div class="card h-100 shadow-sm">
         <!-- <div class="card-body"> -->
-            <div class="card h-100 shadow-sm">
-            <img src="assets/images/student-bg.jpg" alt="" class="card-img-top">
-            <div class="card-body">
-          <h5 class="card-title"><i class="bi bi-star-fill text-warning me-2"></i>{{ comp.title }}</h5>
-          <p class="card-text">{{ comp.description }}</p>
-          <p class="mb-1"><i class="bi bi-calendar-event me-1"></i> Start: {{ comp.startDate }}</p>
-          <p><i class="bi bi-calendar-check me-1"></i> End: {{ comp.endDate }}</p>
+        <div class="card h-100 shadow-sm">
+          <img src="assets/images/student-bg.jpg" alt="" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-star-fill text-warning me-2"></i>{{ comp.title }}</h5>
+            <p class="card-text">{{ comp.description }}</p>
+            <p class="mb-1"><i class="bi bi-calendar-event me-1"></i> Start: {{ comp.startDate }}</p>
+            <p><i class="bi bi-calendar-check me-1"></i> End: {{ comp.endDate }}</p>
           </div>
-          </div>
+        </div>
         <!-- </div> -->
       </div>
     </div>
@@ -45,7 +45,8 @@
   <div class="row text-center g-4">
     <div class="col-md-3" *ngFor="let step of steps">
       <div class="card h-100 shadow-sm p-3">
-        <div class="rounded-circle bg-primary text-white mx-auto mb-3 d-flex justify-content-center align-items-center" style="width: 80px; height: 80px; font-size: 32px;">
+        <div class="rounded-circle bg-primary text-white mx-auto mb-3 d-flex justify-content-center align-items-center"
+          style="width: 80px; height: 80px; font-size: 32px;">
           <i [class]="step.icon"></i>
         </div>
         <h5 class="card-title">{{ step.title }}</h5>
@@ -66,6 +67,48 @@
           <h5 class="card-title">{{ winner.name }}</h5>
           <p class="card-text">{{ winner.blog }}</p>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT OUR PARTICIPANTS SAY -->
+<div class="container my-5">
+  <h2 class="mb-4 text-center">What Our Participants Say</h2>
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let testimonial of testimonials">
+      <div class="card h-100 shadow-sm p-3 position-relative">
+        <i class="bi bi-quote text-primary position-absolute top-0 start-0 fs-2"></i>
+        <div class="card-body pt-4">
+          <p class="card-text">{{ testimonial.feedback }}</p>
+        </div>
+        <div class="d-flex align-items-center mt-3 px-2">
+          <img [src]="testimonial.image" alt="Profile" class="rounded-circle me-3"
+            style="width: 50px; height: 50px; object-fit: cover;">
+          <div>
+            <h6 class="mb-0">{{ testimonial.name }}</h6>
+            <small class="text-muted">{{ testimonial.college }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- READY TO SHOWCASE SECTION -->
+<div class="bg-primary text-white py-5">
+  <div class="container">
+    <div class="row align-items-center text-center text-md-start">
+      <div class="col-md-8 mb-3 mb-md-0">
+        <h2 class="display-5 fw-bold">Ready to Showcase Your Innovation?</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis dolore odio nobis unde fuga possimus,
+          consequuntur quae, est enim at nam deserunt temporibus perspiciatis iusto? Amet quisquam voluptate quos
+          debitis, officia dolorem perspiciatis libero.</p>
+      </div>
+      <div class="col-md-4 text-md-end">
+        <a routerLink="/register" class="btn btn-light text-dark fw-semibold">
+          <i class="bi bi-rocket-takeoff-fill me-2"></i> Getting Started
+        </a>
       </div>
     </div>
   </div>
