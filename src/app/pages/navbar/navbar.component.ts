@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +10,8 @@ import { RouterModule } from '@angular/router';
 })
 export class NavbarComponent {
   isDarkMode : boolean = false;
+  userService = inject(UserService);
+  router = inject(Router);
 
   ngOnInit(){
     //load save preferences on init
@@ -31,5 +34,10 @@ export class NavbarComponent {
     }else{
       document.body.classList.remove('dark-mode');
     }
+  }
+
+  onLogOff(){
+    localStorage.removeItem("studentId");
+    this.router.navigateByUrl("/home");
   }
 }

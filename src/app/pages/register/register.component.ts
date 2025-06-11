@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -23,12 +24,14 @@ export class RegisterComponent {
 
   http = inject(HttpClient);
 
+  constructor(
+    private router : Router,
+  ){}
   onRegister(){
-    debugger;
     this.http.post(this.url+ "register", this.registerObj).subscribe((res)=>{
-      debugger;
       alert("User registerd successfully");
       this.registerObj = "";
+      this.router.navigateByUrl('/login');
     })
   }
 }
