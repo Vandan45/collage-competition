@@ -5,12 +5,12 @@
     <span class="fw-bold">CollegeCompetition</span>
   </a>
 
-  <!-- Toggle for mobile -->
+  <!-- Mobile Toggle -->
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <!-- Main nav links and buttons -->
+  <!-- Navbar content -->
   <div class="collapse navbar-collapse" id="navbarContent">
     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
       <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
@@ -19,15 +19,34 @@
       <li class="nav-item"><a class="nav-link" routerLink="/pastwinners">Past Winners</a></li>
     </ul>
 
-    <!-- Login/Register and Theme Toggle -->
+    <!-- Right side buttons -->
     <div class="d-flex align-items-center">
-      <a class="btn btn-outline-primary me-2" routerLink="/login">Login</a>
-      <a class="btn btn-primary me-3" routerLink="/register">Register</a>
+      <!-- Regular login/register (optional fallback) -->
+      @if(this.userService.loggedUserId == ""){
+      <div>
+        <a class="btn btn-outline-primary me-2" routerLink="/login">Login</a>
+        <a class="btn btn-primary me-3" routerLink="/register">Register</a>
+      </div>
+      }@else{
 
-      <!-- Toggle switch -->
-      <!-- <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="themeToggle" [checked]="isDarkMode" (change)="toggleDarkMode()" />
-      </div> -->
+      <!-- User dropdown -->
+      <div class="dropdown">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i class="bi bi-person-circle me-1"></i> User
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" routerLink="/dashboard"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a></li>
+          <li><a class="dropdown-item" routerLink="/profile"><i class="bi bi-person-lines-fill me-2"></i>My Profile</a>
+          </li>
+          <li><a class="dropdown-item" routerLink="/projects"><i class="bi bi-kanban me-2"></i>My Projects</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item text-danger" (click)="onLogOff()"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+        </ul>
+      </div>
+      }
     </div>
   </div>
 </nav>
