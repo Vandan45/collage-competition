@@ -28,4 +28,25 @@ competitions = [
     { name: 'Jane Smith', url: 'assets/images/stu2.jpg', blog: 'An amazing journey and a great learning experience.' },
     { name: 'Raj Patel', url: 'assets/images/stu3.jpg', blog: 'Grateful for the opportunity and support from mentors.' },
   ];
+
+  testimonials = [
+  {
+    feedback: 'Participating in these competitions gave me confidence and boosted my resume!',
+    name: 'Aarav Sharma',
+    college: 'XYZ Institute of Technology',
+    image: 'assets/images/stu1.jpg'
+  },
+  {
+    feedback: 'Great platform to learn, compete and connect with other students across colleges.',
+    name: 'Meera Patel',
+    college: 'ABC College of Engineering',
+    image: 'assets/images/stu2.jpg'
+  },
+  {
+    feedback: 'Loved the way it was organized, and the prizes were a bonus!',
+    name: 'Raj Verma',
+    college: 'LMN University',
+    image: 'assets/images/stu3.jpg'
+  }
+];
 }
