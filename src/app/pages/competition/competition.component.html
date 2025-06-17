@@ -1,0 +1,91 @@
+<div class="container mt-4">
+  <div class="row">
+    
+    <!-- Competition List Section -->
+    <div class="col-md-7">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">Competitions</h5>
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-bordered mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr *ngFor="let comp of competitions"> -->
+                @for (item of gridList; track $index) {
+              <tr>
+                <td>{{ $index + 1 }}</td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.startDate| date:'dd-MM-yyyy' }}</td>
+                <td>{{ item.endDate| date:'dd-MM-yyyy' }}</td>
+                <td>{{ item.status }}</td>
+                <td>
+                  <!-- <button class="btn btn-sm btn-warning me-1" (click)="editCompetition(comp)">Edit</button>
+                  <button class="btn btn-sm btn-danger" (click)="deleteCompetition(comp.competitionId)">Delete</button> -->
+                  <button class="btn btn-sm btn-warning me-1">Edit</button>
+                  <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+              </tr>
+              <!-- <tr *ngIf="competitions.length === 0"> -->
+              <!-- <tr>
+                <td colspan="5" class="text-center">No competitions found</td>
+              </tr> -->
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="col-md-5 mt-4 mt-md-0">
+      <div class="card shadow">
+        <div class="card-header bg-success text-white">
+          <h5 class="mb-0"> Competition</h5>
+          <!-- <h5 class="mb-0">{{ isEdit ? 'Edit' : 'Add' }} Competition</h5> -->
+        </div>
+        <div class="card-body">
+          <!-- <form (ngSubmit)="onSubmit()" #compForm="ngForm"> -->
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Title</label>
+              <input type="text" [(ngModel)]="newObj.title" class="form-control" name="title" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <textarea [(ngModel)]="newObj.description" class="form-control" name="description"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Start Date</label>
+              <input type="date" [(ngModel)] = "newObj.startDate" class="form-control" name="startDate" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">End Date</label>
+              <input type="date" [(ngModel)] = "newObj.endDate" class="form-control" name="endDate" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Status</label>
+              <input [(ngModel)]="newObj.status" type="text" class="form-control" name="status">
+            </div>
+            <div class="d-flex justify-content-between">
+              <!-- <button class="btn btn-primary" type="submit">{{ isEdit ? 'Update' : 'Create' }}</button>
+              <button class="btn btn-secondary" type="button" (click)="resetForm()">Clear</button> -->
+              <button class="btn btn-primary" type="submit" (click)="onSave()">Save</button>
+              <button class="btn btn-secondary" type="button">Clear</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
