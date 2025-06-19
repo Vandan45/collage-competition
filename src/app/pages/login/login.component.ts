@@ -27,8 +27,10 @@ export class LoginComponent {
       next:(res:any)=>{
         // debugger;
         localStorage.setItem("studentId", res.userId);
+        localStorage.setItem("loggedUser", JSON.stringify(res));
         alert("User Logged IN");
         this.userService.loggedUserId = res.userId;
+        this.userService.loggedUserData = res;
         this.router.navigateByUrl("/home");
       },
       error:()=>{

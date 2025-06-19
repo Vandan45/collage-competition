@@ -8,11 +8,14 @@ import { environment } from '../../environments/environment';
 export class UserService {
   apiUrl:string = environment.apiUrl;
   loggedUserId: string = "";
+  loggedUserData:any = undefined;
 
   constructor(private http: HttpClient) { 
     const loggedData = localStorage.getItem("studentId");
-    if(loggedData != null){
+    const loggedUserData = localStorage.getItem("loggedUser");
+    if(loggedData != null && loggedUserData != null){
       this.loggedUserId = loggedData;
+      this.loggedUserData = JSON.parse(loggedUserData);
     }
   }
 

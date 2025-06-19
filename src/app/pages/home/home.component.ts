@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CompetitionModel } from '../../model/competition.model';
+import { Observable } from 'rxjs';
+import { CompetitionService } from '../../services/competition.service';
 
 @Component({
   selector: 'app-home',
@@ -51,4 +54,13 @@ competitions = [
     image: 'assets/images/stu3.jpg'
   }
 ];
+
+  competitionService = inject(CompetitionService);
+  competitionList$: Observable<CompetitionModel[]> = new Observable<CompetitionModel[]>
+
+  constructor() {
+    this.competitionList$ = this.competitionService.getCompetition();
+    console.log("this.competitionList$", this.competitionList$);
+    
+  }
 }

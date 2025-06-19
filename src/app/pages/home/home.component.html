@@ -21,9 +21,24 @@
 <div class="container my-5">
   <h2 class="mb-4 text-center">Featured Competitions</h2>
   <div class="row g-4">
-    <div class="col-md-4" *ngFor="let comp of competitions">
+    @for (item of competitionList$ |async; track $index) {
+    <div class="col-md-4 mb-4">
       <div class="card h-100 shadow-sm">
         <!-- <div class="card-body"> -->
+        <!-- <div class="card h-100 shadow-sm"> -->
+          <img src="assets/images/student-bg.jpg" alt="" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-star-fill text-warning me-2"></i>{{ item.title }}</h5>
+            <p class="card-text">{{ item.description }}</p>
+            <p class="mb-1"><i class="bi bi-calendar-event me-1"></i> Start: {{ item.startDate | date: 'dd-MMM-yy'}}</p>
+            <p><i class="bi bi-calendar-check me-1"></i> End: {{ item.endDate | date: 'dd-MMM-yy' }}</p>
+          </div>
+        <!-- </div> -->
+        <!-- </div> -->
+      </div>
+    </div>
+    <!-- <div class="col-md-4" *ngFor="let comp of competitions">
+      <div class="card h-100 shadow-sm">
         <div class="card h-100 shadow-sm">
           <img src="assets/images/student-bg.jpg" alt="" class="card-img-top">
           <div class="card-body">
@@ -33,9 +48,9 @@
             <p><i class="bi bi-calendar-check me-1"></i> End: {{ comp.endDate }}</p>
           </div>
         </div>
-        <!-- </div> -->
       </div>
-    </div>
+    </div> -->
+    }
   </div>
 </div>
 
@@ -113,3 +128,5 @@
     </div>
   </div>
 </div>
+
+<pre>{{competitionList$|json}}</pre>

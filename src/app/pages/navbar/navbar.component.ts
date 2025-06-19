@@ -38,6 +38,7 @@ export class NavbarComponent {
 
   onLogOff(){
     localStorage.removeItem("studentId");
+    localStorage.removeItem("loggedUser");
     this.router.navigateByUrl("/home");
   }
 }
